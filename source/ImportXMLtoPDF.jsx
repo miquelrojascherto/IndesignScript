@@ -1,15 +1,15 @@
 ﻿//Global Variables
-var myTemplate = File( "/Applications/Adobe InDesign CS6/Template/BannerSheet.indd" ),
-    myFolder = Folder( "/Applications/Adobe InDesign CS6/XML" ),
-    myXMLDocs = myFolder.getFiles( "*.xml" );
+var  
+    myXMLDocs = Folder.desktop.getFiles( "*.xml" ),
+    myINDTDocs = Folder.desktop.getFiles( "*.indt" );
 
 //To automate the banner sheet to import skinny xml 
 
 //Iterate through the xml files
 for ( var i = 0; i < myXMLDocs.length; i++ ) {
     //open template
-    var newDoc = app.open( myTemplate ),
-        myXMLDocs = app.activeDocument;
+    var newDoc = app.open( myINDTDocs[0] ),
+        newDoc = app.activeDocument;
 
     //import xml
 
@@ -26,7 +26,8 @@ for ( var i = 0; i < myXMLDocs.length; i++ ) {
     saveFiles();
 
     function saveFiles() {
-        var newFileName = myFolder.absoluteURI + "/Applications/Adobe InDesign CS6/XML/Outputs" + myXMLDocs[i].name().replace( /xml/, /indd/ );
+        var newFileName = "/Users/mique/Creative Cloud Files/PROJECT/INDESIGN/BUSINESS_CARD/EXAMPLE/myTestdocument.indd";
+        //myXMLDocs[i].name().replace( /xml/, /indd/ )
         newDoc.save( new File( newFileName ) );
         myDoc.close();
     }
