@@ -1,6 +1,6 @@
 ﻿//Open files
 var
-    myXMLDoc = File( "/c/Users/mique/Development/Github/XLSconverter/files/example5/BUSINESS-CARD-xsl.xml" ),
+    myXMLDoc = File( "/c/Users/mique/Development/Github/XLSconverter/files/example5/BUSINESS-CARD-xsl_a.xml" ),
     myINDTDoc = File( "/c//Users/mique/Creative Cloud Files/PROJECT/INDESIGN/BUSINESS_CARD/EXAMPLE/TC9980401-LAYOUT-PI2.indt" );
 
 
