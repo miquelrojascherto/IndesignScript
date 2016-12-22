@@ -1,35 +1,23 @@
-﻿//Global Variables
-var  
-    myXMLDocs = Folder.desktop.getFiles( "*.xml" ),
-    myINDTDocs = Folder.desktop.getFiles( "*.indt" );
+﻿//Open files
+var
+    myXMLDoc = File( "/c/Users/mique/Development/Github/XLSconverter/files/example5/BUSINESS-CARD-xsl.xml" ),
+    myINDTDoc = File( "/c//Users/mique/Creative Cloud Files/PROJECT/INDESIGN/BUSINESS_CARD/EXAMPLE/TC9980401-LAYOUT-PI2.indt" );
 
-//To automate the banner sheet to import skinny xml 
 
-//Iterate through the xml files
-for ( var i = 0; i < myXMLDocs.length; i++ ) {
-    //open template
-    var newDoc = app.open( myINDTDocs[0] ),
-        newDoc = app.activeDocument;
+var newDoc = app.open( myINDTDoc );
+newDoc = app.activeDocument;
 
-    //import xml
+//import xml
+newDoc.importXML( myXMLDoc );
 
-    newDoc.importXML( myXMLDocs[i] );
+//Export PDF from InDesign
+app.activeDocument.exportFile( ExportFormat.pdfType, File( "/c/Users/mique/Creative Cloud Files/PROJECT/INDESIGN/BUSINESS_CARD/EXAMPLE/myTestdocument.pdf" ), false );
 
-    //Export PDF from InDesign
+//Save Function
+saveFiles();
 
-    myPDFExportPreset = app.pdfExportPresets.item( "Smallest File Size" ),
-        app.activeDocument.exportFile( ExportFormat.pdfType, File( "/Applications/Adobe InDesign CS6/XML/Outputs/myTestDocument.pdf" ),
-            false, myPDFExportPreset );
-
-    //Save Function
-
-    saveFiles();
-
-    function saveFiles() {
-        var newFileName = "/Users/mique/Creative Cloud Files/PROJECT/INDESIGN/BUSINESS_CARD/EXAMPLE/myTestdocument.indd";
-        //myXMLDocs[i].name().replace( /xml/, /indd/ )
-        newDoc.save( new File( newFileName ) );
-        myDoc.close();
-    }
-
+function saveFiles() {
+    var newFileName = "/c/Users/mique/Creative Cloud Files/PROJECT/INDESIGN/BUSINESS_CARD/EXAMPLE/myTestdocument.indd";
+    newDoc.save( new File( newFileName ) );
+    newDoc.close();
 }
