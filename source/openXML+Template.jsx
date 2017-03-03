@@ -1,6 +1,6 @@
 ﻿//Open files
 var myXMLDoc = "BUSINESS-CARD-xsl_a",
-    myINDTDoc = "TC9980401-LAYOUT-PI2";
+myINDTDoc = "TC9980401-LAYOUT-PI2";
 
 var
     myDate = new Date,
